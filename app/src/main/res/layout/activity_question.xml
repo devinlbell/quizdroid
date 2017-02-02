@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_question"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.washington.devinb5.quizdroid.MainActivity">
+    tools:context="edu.washington.devinb5.quizdroid.question">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,30 +21,39 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <Button
-                android:text="Math"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <RadioButton
+                android:text="Choice 1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_math" />
+                android:id="@+id/btn_ans1" />
 
-            <Button
-                android:text="Physics"
+            <RadioButton
+                android:text="Choice 2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_physics" />
+                android:id="@+id/btn_ans2" />
 
-            <Button
-                android:text="Marvel Super Heroes"
+            <RadioButton
+                android:text="Three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_marvel" />
+                android:id="@+id/btn_ans3" />
 
-            <Button
-                android:text="Music"
+            <RadioButton
+                android:text="Choice 4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_music" />
+                android:id="@+id/btn_ans4" />
+                <Button
+                    android:text="Submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_submit" />
+            </RadioGroup>
+
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

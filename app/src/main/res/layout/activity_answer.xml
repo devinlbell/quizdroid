@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_answer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.washington.devinb5.quizdroid.MainActivity">
+    tools:context="edu.washington.devinb5.quizdroid.answer">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:text="Math"
+            <TextView
+                android:text="You answered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_math" />
+                android:id="@+id/ans_user" />
+
+            <TextView
+                android:text="The correct answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ans_correct" />
+
+            <TextView
+                android:text="You have answered 0 out of 0 correct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ans_summary" />
 
             <Button
-                android:text="Physics"
+                android:text="Finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_physics" />
-
-            <Button
-                android:text="Marvel Super Heroes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_marvel" />
-
-            <Button
-                android:text="Music"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_music" />
+                android:id="@+id/btn_finish" />
         </LinearLayout>
     </FrameLayout>
+
 </RelativeLayout>
