@@ -17,34 +17,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/lvTopics" />
 
-            <Button
-                android:text="Math"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_math" />
-
-            <Button
-                android:text="Physics"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_physics" />
-
-            <Button
-                android:text="Marvel Super Heroes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_marvel" />
-
-            <Button
-                android:text="Music"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_music" />
-        </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

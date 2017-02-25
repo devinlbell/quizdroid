@@ -18,7 +18,7 @@ public class question extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        answer = "You haven't answer anything yet.";
+        answer = "You haven't answered anything yet.";
         Button submit = (Button) findViewById(R.id.btn_submit);
         choice1 = (Button) findViewById(R.id.btn_ans1);
         choice2 = (Button) findViewById(R.id.btn_ans2);
