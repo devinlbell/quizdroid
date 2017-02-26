@@ -6,34 +6,21 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link topicOverviewFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link topicOverviewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class topicOverviewFragment extends Fragment {
-    private String topic, description;
+    private String topic, description, question, answer;
     private int numQuestions;
+    private ArrayList<String> answers;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -42,24 +29,7 @@ public class topicOverviewFragment extends Fragment {
 
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment topicOverviewFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-//    public static topicOverviewFragment newInstance(String param1, String param2) {
-//
-//        topicOverviewFragment fragment = new topicOverviewFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,13 +38,13 @@ public class topicOverviewFragment extends Fragment {
         if (getArguments() != null) {
             //Log.v("HELLO FRAGMENT", "" + getArguments().getStringArrayList("Stuff").get(0));
             topic = getArguments().getString("Topic");
-            description = getArguments().getString("Description");
-            numQuestions = getArguments().getInt("numQuestions");
+//            description = getArguments().getString("Description");
+//            numQuestions = getArguments().getInt("numQuestions");
 
         } else {
             topic = "Your mom";
-            description = "Learn about where you came from";
-            numQuestions = 10;
+//            description = "Learn about where you came from";
+//            numQuestions = 10;
         }
     }
 
@@ -87,23 +57,80 @@ public class topicOverviewFragment extends Fragment {
         Button start = (Button) view.findViewById(R.id.btn_start);
         TextView topicText = (TextView) view.findViewById(R.id.hdr_topic);
         topicText.setText("Topic: " + topic);
+        populateTopicInfo();
         TextView descriptionText = (TextView) view.findViewById(R.id.body_description);
         descriptionText.setText("Description: " + description);
         TextView numText = (TextView) view.findViewById(R.id.body_numQuestions);
         numText.setText("Number of Questions: " + numQuestions);
-        Log.v("JELLO READER", "WE FOUND THE BUTTON");
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                // topicOverviewFragment topicOverview = new topicOverviewFragment();
-                ft.replace(R.id.topic_overview, new topicOverviewFragment());
+                // topicOverviewFragment QuizActivity = new topicOverviewFragment();
+                Fragment qf = new questionFragment();
+                Bundle bl = new Bundle();
+
+                bl.putString("question", question);
+                bl.putString("answer", answer);
+                bl.putStringArrayList("answers", answers);
+                qf.setArguments(bl);
+                ft.replace(R.id.topic_overview, qf);
                 ft.commit();
+
 
             }
         });
         return view;
+    }
+
+    public void populateTopicInfo() {
+        switch(topic) {
+            case "Math":
+                description = "Math teaches you the fundamentals of numeric values";
+                numQuestions = 1;
+                question = "What is the sum of 1 + 1?";
+                answer = "2";
+                answers = new ArrayList<String>();
+                answers.add("1");
+                answers.add("a window");
+                answers.add("2");
+                answers.add("It depends");
+                break;
+            case "Physics":
+                description = "Physics teaches you the fundamentals of the physical world";
+                numQuestions = 1;
+                question = "What is the velocity of gravity?";
+                answer = "9.81 meters squared per second";
+                answers = new ArrayList<String>();
+                answers.add("5 ft per second");
+                answers.add("The time it takes for me to hit the ground");
+                answers.add("9.81 meters squared per second");
+                answers.add("It depends");
+                break;
+            case "Music":
+                description = "Test your pop culture knowledge, or knowledge of instruments. We're indecisive about topics.";
+                numQuestions = 1;
+                question = "How many strings does a standard guitar have?";
+                answer = "6";
+                answers = new ArrayList<String>();
+                answers.add("4");
+                answers.add("Two more than the amount of answers");
+                answers.add("6");
+                answers.add("It depends");
+                break;
+            case "Marvel Super Heroes":
+                description = "Test your knowledge of marvel super heroes. No villains please";
+                numQuestions = 1;
+                question = "Which one of these characters has not had Spider-man's powers?";
+                answer = "Dr. Strange";
+                answers = new ArrayList<String>();
+                answers.add("Kaine");
+                answers.add("J. Jonah Jameson");
+                answers.add("Dr. Strange");
+                answers.add("Ben Reilly");
+                break;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

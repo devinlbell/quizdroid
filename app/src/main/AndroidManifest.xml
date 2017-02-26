@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".topicOverview" />
+        <activity android:name=".QuizActivity" />
         <activity android:name=".question" />
         <activity android:name=".answer"></activity>
     </application>

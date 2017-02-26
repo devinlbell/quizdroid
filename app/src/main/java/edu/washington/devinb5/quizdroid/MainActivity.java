@@ -33,7 +33,7 @@ public class MainActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.v("HELLO READER", "WE IN THE ClICK 1");
-                Intent i = new Intent(MainActivity.this, topicOverview.class);
+                Intent i = new Intent(MainActivity.this, QuizActivity.class);
 
                 i.putExtra(EXTRA, (String) topics.getItemAtPosition(position));
                 Log.v("HELLO READER", "WE IN THE ClICK 2");
@@ -47,7 +47,7 @@ public class MainActivity extends Activity{
 //
 //
 //        public void onClick(View v) {
-//            Intent intent = new Intent(MainActivity.this, topicOverview.class);
+//            Intent intent = new Intent(MainActivity.this, QuizActivity.class);
 //            switch (v.getId()) {
 //                case R.id.btn_math:
 //                    String[] maths = {"Math", "Math teaches you the fundamentals of numeric values", "1"};
