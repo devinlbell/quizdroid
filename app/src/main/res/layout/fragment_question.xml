@@ -7,6 +7,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_question" />
+
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent">

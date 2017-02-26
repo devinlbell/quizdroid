@@ -1,0 +1,37 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.washington.devinb5.quizdroid.answerFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="You answered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ans_user" />
+
+        <TextView
+            android:text="The correct answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ans_correct" />
+
+        <TextView
+            android:text="You have answered 0 out of 0 correct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ans_summary" />
+
+        <Button
+            android:text="Finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_finish" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -14,7 +14,7 @@ public class QuizActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topic_overview);
+        setContentView(R.layout.activity_quiz);
         Intent intent = getIntent();
         topic = intent.getStringExtra(MainActivity.EXTRA);
 //        populateTopicInfo();

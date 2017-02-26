@@ -1,5 +1,7 @@
 package edu.washington.devinb5.quizdroid;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import static edu.washington.devinb5.quizdroid.question.Q_EXTRA;
+
 
 
 /**
@@ -61,7 +66,8 @@ public class questionFragment extends Fragment {
 
 //        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_question, container, false);
-        Log.v("HELLO READER", "Arguments are established");
+        TextView questionText = (TextView) view.findViewById(R.id.text_question);
+        questionText.setText(question);
 
         Button submit = (Button) view.findViewById(R.id.btn_submit);
         choice1 = (Button) view.findViewById(R.id.btn_ans1);
@@ -83,6 +89,17 @@ public class questionFragment extends Fragment {
             public void onClick(View v) {
                 if(btnChecked) {
                     Log.v("Submit button says: ", "You made it");
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    Fragment af = new answerFragment();
+                    Bundle bl = new Bundle();
+
+                    bl.putString("correctAnswer", correctAnswer);
+                    bl.putString("answer", answer);
+                    af.setArguments(bl);
+                    ft.replace(R.id.topic_overview, af);
+                    ft.commit();
+
 
                 }
 
